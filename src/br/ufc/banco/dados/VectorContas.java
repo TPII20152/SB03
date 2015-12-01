@@ -1,5 +1,6 @@
 package br.ufc.banco.dados;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import br.ufc.banco.conta.ContaAbstrata;
@@ -31,13 +32,13 @@ public class VectorContas implements IRepositorioContas {
 		}
 	}
 
-	public ContaAbstrata[] listar() {
+	public ArrayList<ContaAbstrata> listar() {
 
-		ContaAbstrata[] lista = null;
+		ArrayList<ContaAbstrata> lista = null;
 		if (this.contas.size() > 0) {
-			lista = new ContaAbstrata[this.contas.size()];
+			lista = new ArrayList<ContaAbstrata>(this.contas.size());
 			for (int i = 0; i < this.contas.size(); i++) {
-				lista[i] = (ContaAbstrata) this.contas.elementAt(i);
+				lista.add((ContaAbstrata) this.contas.elementAt(i));
 			}
 		}
 		return lista;
