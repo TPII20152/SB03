@@ -6,6 +6,7 @@ import br.ufc.banco.bb.excecoes.TNRException;
 import br.ufc.banco.conta.Conta;
 import br.ufc.banco.conta.ContaAbstrata;
 import br.ufc.banco.conta.ContaEspecial;
+import br.ufc.banco.conta.ContaImposto;
 import br.ufc.banco.conta.ContaPoupanca;
 import br.ufc.banco.dados.VectorContas;
 import br.ufc.banco.dados.excecoes.CEException;
@@ -37,11 +38,11 @@ public class TAABB24H {
 					break;
 				case 4:
 					System.out.println("Digite o número da conta imposto: ");
-					conta = new ContaPoupanca(scanner.next());
+					conta = new ContaImposto(scanner.next());
 					break;
 
 				default:
-					System.out.println("Opçao Inválida!!!!");
+					System.out.println("Opção Inválida!!!!");
 					break;
 				}
 
