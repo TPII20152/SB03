@@ -19,8 +19,12 @@ public class ContaEspecial extends Conta {
 	}
 
 	public void creditar(double valor) {
-		bonus = bonus + (valor * 0.01);
-		super.creditar(valor);
+		if (valor >= 0) {
+			bonus = bonus + (valor * 0.01);
+			super.creditar(valor);
+		}
+		else
+			System.out.println("Transacao nao permitida: credito de valor negativo");
 	}
 
 }
