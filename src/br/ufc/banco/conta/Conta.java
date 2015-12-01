@@ -10,10 +10,14 @@ public class Conta extends ContaAbstrata {
 	}
 
 	public void debitar(double valor) throws SIException {
-		if (this.saldo >= valor) {
-			this.saldo = this.saldo - valor;
-		} else {
-			throw new SIException(numero, valor);
+		if (valor >= 0) {
+			if (this.saldo >= valor) {
+				this.saldo = this.saldo - valor;
+			} else {
+				throw new SIException(numero, valor);
+			}
 		}
+		else
+			System.out.println("Transacao nao permitida: debito de valor negativo");
 	}
 }
