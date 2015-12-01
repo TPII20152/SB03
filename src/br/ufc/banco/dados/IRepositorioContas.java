@@ -1,5 +1,7 @@
 package br.ufc.banco.dados;
 
+import java.util.ArrayList;
+
 import br.ufc.banco.conta.ContaAbstrata;
 import br.ufc.banco.dados.excecoes.CEException;
 import br.ufc.banco.dados.excecoes.CIException;
@@ -12,7 +14,7 @@ public interface IRepositorioContas {
 
 	public ContaAbstrata procurar(String numero);
 
-	public ContaAbstrata[] listar();
+	public ArrayList<ContaAbstrata> listar();
 
 	public int numeroContas();
 }

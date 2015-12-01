@@ -1,5 +1,7 @@
 package br.ufc.banco.bb;
 
+import java.util.ArrayList;
+
 import br.ufc.banco.bb.excecoes.TCIException;
 import br.ufc.banco.bb.excecoes.TNRException;
 import br.ufc.banco.conta.ContaAbstrata;
@@ -115,9 +117,9 @@ public class BancoBrasil {
 	public double saldoTotal() {
 		double saldo = 0;
 		if (this.repositorio.numeroContas() > 0) {
-			ContaAbstrata[] contas = this.repositorio.listar();
-			for (int i = 0; i < contas.length; i++) {
-				saldo += contas[i].obterSaldo();
+			ArrayList<ContaAbstrata> contas = this.repositorio.listar();
+			for (int i = 0; i < contas.size(); i++) {
+				saldo += contas.get(i).obterSaldo();
 			}
 		}
 		return saldo;
