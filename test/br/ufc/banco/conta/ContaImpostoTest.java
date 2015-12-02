@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import br.ufc.banco.conta.excecoes.SIException;
+
 public class ContaImpostoTest {
 	
 	@Test
@@ -14,7 +16,7 @@ public class ContaImpostoTest {
 	}
 
 	@Test
-	public void testDebitarNormal() {
+	public void testDebitarNormal() throws SIException {
 		ContaImposto ci = new ContaImposto("4567");
 		ci.creditar(10.0);
 		ci.debitar(4.0);
@@ -22,7 +24,7 @@ public class ContaImpostoTest {
 	}
 	
 	@Test
-	public void testDebitarNegativo() {
+	public void testDebitarNegativo() throws SIException {
 		ContaImposto ci = new ContaImposto("4567");
 		ci.creditar(10.0);
 		ci.debitar(-4.0);
