@@ -25,7 +25,7 @@ public class VectorContas implements IRepositorioContas {
 	}
 
 	public void inserir(ContaAbstrata conta) throws CEException {
-		if (this.procurar(conta.obterNumero()) != null) {
+		if (this.procurar(conta.obterNumero()) == null) {
 			this.contas.addElement(conta);
 		} else {
 			throw new CEException(conta.obterNumero());
@@ -49,9 +49,10 @@ public class VectorContas implements IRepositorioContas {
 	}
 
 	public ContaAbstrata procurar(String numero) {
+		ContaAbstrata conta = null;
 		if (this.contas.size() > 0) {
 			for (int i = 0; i < this.contas.size(); i++) {
-				ContaAbstrata conta = (ContaAbstrata) this.contas.elementAt(i);
+				conta = (ContaAbstrata) this.contas.elementAt(i);
 				if (conta.obterNumero().equals(numero)) {
 					return conta;
 				}

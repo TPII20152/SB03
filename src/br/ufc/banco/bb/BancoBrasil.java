@@ -81,7 +81,6 @@ public class BancoBrasil {
 		} else {
 			throw new TNRException(new CIException(numOrigem));
 		}
-
 	}
 
 	public void renderJuros(String numConta) throws TNRException {

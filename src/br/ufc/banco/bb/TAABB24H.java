@@ -40,9 +40,8 @@ public class TAABB24H {
 					System.out.println("Digite o número da conta imposto: ");
 					conta = new ContaImposto(scanner.next());
 					break;
-
 				default:
-					System.out.println("Opção Inválida!!!!");
+					System.out.println("Opção Inválida!");
 					break;
 				}
 
