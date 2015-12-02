@@ -24,7 +24,7 @@ public class ContaEspecial extends Conta {
 			super.creditar(valor);
 		}
 		else
-			System.out.println("Transacao nao permitida: credito de valor negativo");
+			System.out.println("Transação não permitida: crédito de valor negativo");
 	}
 
 }

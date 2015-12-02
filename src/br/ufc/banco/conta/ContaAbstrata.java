@@ -17,7 +17,7 @@ public abstract class ContaAbstrata {
 		if (valor >= 0)
 			saldo = saldo + valor;
 		else
-			System.out.println("Transacao nao permitida: credito de valor negativo");
+			System.out.println("Transação não permitida: crédito de valor negativo");
 	}
 
 	public abstract void debitar(double valor) throws SIException;

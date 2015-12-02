@@ -18,6 +18,6 @@ public class Conta extends ContaAbstrata {
 			}
 		}
 		else
-			System.out.println("Transacao nao permitida: debito de valor negativo");
+			System.out.println("Transação não permitida: débito de valor negativo");
 	}
 }

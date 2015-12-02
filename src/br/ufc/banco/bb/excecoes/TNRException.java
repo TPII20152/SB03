@@ -7,12 +7,12 @@ public class TNRException extends Exception {
 	private Exception causa;
 
 	public TNRException(Exception exception) {
-		super("Transação não Realizada!");
+		super("Transação não realizada!");
 		this.causa = exception;
 	}
 
 	public String getMessage() {
-		return "Transação não Realizada! Causa: " + causa.getMessage();
+		return "Transação não realizada! Causa: " + causa.getMessage();
 	}
 
 	public Exception getCausa() {

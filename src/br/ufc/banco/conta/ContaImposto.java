@@ -11,6 +11,6 @@ public class ContaImposto extends ContaAbstrata {
 		if (valor >= 0)
 			this.saldo = this.saldo - (valor + (valor * 0.001));
 		else
-			System.out.println("Transacao invalida: nao e possivel debitar com valor negativo");
+			System.out.println("Transação inválida: não é possível debitar com valor negativo");
 	}
 }

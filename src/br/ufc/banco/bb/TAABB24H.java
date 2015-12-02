@@ -141,11 +141,12 @@ public class TAABB24H {
 				break;
 
 			case 9:
-				System.out.print("Tenha um bom dia!!!");
+				System.out.print("Tenha um bom dia!");
 				loop = false;
 				break;
 
 			default:
+				System.out.println("Opção Inválida!");
 				break;
 			}
 		}
