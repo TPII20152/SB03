@@ -15,11 +15,9 @@ public class ArrayContas implements IRepositorioContas {
 	}
 
 	public void apagar(String numero) throws CIException {
-		if (this.procurar(numero) != null) {
-			for (int i = 0; i < contas.size(); i++) {
-				if (!contas.isEmpty() && contas.get(i).equals(numero))
-					contas.remove(i);
-			}
+		ContaAbstrata conta = procurar(numero);
+		if (conta != null) {
+				contas.remove(conta);
 		}
 		else {
 			throw new CIException(numero);
