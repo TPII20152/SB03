@@ -75,13 +75,11 @@ public class VectorContasTest {
 		VectorContas vector = new VectorContas();
 		ContaAbstrata c1 = new Conta("1234");
 		ContaAbstrata c2 = new Conta("2345");
-		ContaAbstrata c3 = new Conta("3456");
 		
 		vector.inserir(c1);
 		vector.inserir(c2);
-		vector.inserir(c3);
 		
-		assertEquals(3, vector.numeroContas(), 0);
+		assertEquals(2, vector.numeroContas(), 0);
 	}
 
 	@Test
