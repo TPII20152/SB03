@@ -48,9 +48,13 @@ public class ArrayContas implements IRepositorioContas {
 	}
 
 	public ContaAbstrata procurar(String numero) {
-		for (int i = 0; i < contas.size(); i++) {
-			if (!contas.isEmpty() && contas.get(i).equals(numero)) {
-				return contas.get(i);
+		ContaAbstrata conta = null;
+		if (this.contas.size() > 0) {
+			for (int i = 0; i < this.contas.size(); i++) {
+				conta = (ContaAbstrata) this.contas.get(i);
+				if (conta.obterNumero().equals(numero)) {
+					return conta;
+				}
 			}
 		}
 		return null;
