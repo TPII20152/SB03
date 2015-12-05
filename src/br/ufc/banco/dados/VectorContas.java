@@ -33,7 +33,6 @@ public class VectorContas implements IRepositorioContas {
 	}
 
 	public ArrayList<ContaAbstrata> listar() {
-
 		ArrayList<ContaAbstrata> lista = null;
 		if (this.contas.size() > 0) {
 			lista = new ArrayList<ContaAbstrata>(this.contas.size());
