@@ -8,6 +8,7 @@ import br.ufc.banco.conta.ContaAbstrata;
 import br.ufc.banco.conta.ContaEspecial;
 import br.ufc.banco.conta.ContaImposto;
 import br.ufc.banco.conta.ContaPoupanca;
+import br.ufc.banco.dados.Persistencia;
 import br.ufc.banco.dados.VectorContas;
 import br.ufc.banco.dados.excecoes.CEException;
 import br.ufc.banco.dados.excecoes.CIException;
