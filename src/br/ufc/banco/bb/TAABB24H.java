@@ -2,6 +2,8 @@ package br.ufc.banco.bb;
 
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+
 import br.ufc.banco.bb.excecoes.TNRException;
 import br.ufc.banco.conta.Conta;
 import br.ufc.banco.conta.ContaAbstrata;
@@ -12,13 +14,24 @@ import br.ufc.banco.dados.Persistencia;
 import br.ufc.banco.dados.VectorContas;
 import br.ufc.banco.dados.excecoes.CEException;
 import br.ufc.banco.dados.excecoes.CIException;
+import br.ufc.banco.gui.MenuFrame;
 
 public class TAABB24H {
 
-	private static Scanner scanner = new Scanner(System.in);
+	private static Scanner scanner = new Scanner(System.in);	
 
 	public static void main(String[] args) {
 		BancoBrasil banco = new BancoBrasil(new VectorContas());
+		
+		// Teste com a GUI
+		
+		MenuFrame menuFrame = new MenuFrame();
+		menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		menuFrame.setSize(600,200);
+		menuFrame.setVisible(true);
+		
+		// Fim de teste com a GUI
+		
 		boolean loop = true;
 		while (loop) {
 			switch (menu()) {
