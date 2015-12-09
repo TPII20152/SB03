@@ -16,12 +16,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import br.ufc.banco.bb.BancoBrasil;
+
 public class MenuFrame extends JFrame {
 
 	JTextField numContaField;
+	BancoBrasil banco;
 	
-	public MenuFrame() {
+	public MenuFrame(BancoBrasil banco) {
 		super("Banco do Brasil");
+		
+		this.banco = banco;
 		
 		criarMenu();
 		cadastrarConta();
@@ -34,46 +39,36 @@ public class MenuFrame extends JFrame {
 		JMenu menuContas = new JMenu("Contas");
 		
 		NovoCadastroAction novoCadastroAction = new NovoCadastroAction();
+		SairAction sairAction = new SairAction();
 		
 		JMenuItem menuItemCadastrar = new JMenuItem("Cadastrar Nova Conta");
 		menuItemCadastrar.addActionListener(novoCadastroAction);
 		menuContas.add(menuItemCadastrar);
 		
-		JMenuItem menuItemRemover = new JMenuItem("Remover Conta");
-		menuContas.add(menuItemRemover);
+		JMenuItem menuItemSair = new JMenuItem("Sair");
+		menuItemSair.addActionListener(sairAction);
+		menuContas.add(menuItemSair);
 		
-		// Menu Transações
+		// Menu Ajuda
 		
-		JMenu menuTransacoes = new JMenu("Transações");
+		JMenu menuAjuda = new JMenu("Ajuda");
 		
-		JMenuItem menuItemSaque = new JMenuItem("Realizar Saque");
-		menuTransacoes.add(menuItemSaque);
-		
-		JMenuItem menuItemTransferencia = new JMenuItem("Transferência");
-		menuTransacoes.add(menuItemTransferencia);
-		
-		JMenuItem menuItemSaldo = new JMenuItem("Visualizar Saldo");
-		menuTransacoes.add(menuItemSaldo);
-		
-		JMenuItem menuItemJuros = new JMenuItem("Render Juros");
-		menuTransacoes.add(menuItemJuros);
-		
-		JMenuItem menuItemBonus = new JMenuItem("Render Bônus");
-		menuTransacoes.add(menuItemBonus);
+		JMenuItem menuItemSobre = new JMenuItem("Sobre");
+		menuAjuda.add(menuItemSobre);
 		
 		// Barra
 		
 		JMenuBar barra = new JMenuBar();
 		setJMenuBar(barra);
 		barra.add(menuContas);
-		barra.add(menuTransacoes);
+		barra.add(menuAjuda);
 		
 	}
 	
 	
 	private void cadastrarConta() {
 		
-		FecharAction fecharAction = new FecharAction();
+		SairAction fecharAction = new SairAction();
 		CadastrarAction cadastrarAction = new CadastrarAction();
 		
 		setLayout(new BorderLayout());
@@ -123,12 +118,14 @@ public class MenuFrame extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			numContaField.setText("");
+			NovoCadastroFrame novoCadastroFrame = new NovoCadastroFrame(banco);
+			novoCadastroFrame.setSize(800,200);
+			novoCadastroFrame.setVisible(true);
 		}
 		
 	}
 	
-	private class FecharAction implements ActionListener {
+	private class SairAction implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {

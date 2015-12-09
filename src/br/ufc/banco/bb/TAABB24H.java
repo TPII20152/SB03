@@ -25,7 +25,7 @@ public class TAABB24H {
 		
 		// Teste com a GUI
 		
-		MenuFrame menuFrame = new MenuFrame();
+		MenuFrame menuFrame = new MenuFrame(banco);
 		menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menuFrame.setSize(600,200);
 		menuFrame.setVisible(true);
