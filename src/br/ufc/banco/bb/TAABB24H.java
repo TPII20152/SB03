@@ -115,7 +115,7 @@ public class TAABB24H {
 				System.out.println("Digite o número da conta: ");
 				numero = scanner.next();
 				try {
-					System.out.println("Conta numero: " + numero);
+					System.out.println("Conta número: " + numero);
 					System.out.println("Saldo: " + banco.saldo(numero));
 				} catch (TNRException tnre) {
 					System.out.println();
@@ -178,7 +178,7 @@ public class TAABB24H {
 		System.out.println(" [5] Visualizar Saldo");
 		System.out.println(" [6] Remover Conta");
 		System.out.println(" [7] Render Juros");
-		System.out.println(" [8] Render Bonus");
+		System.out.println(" [8] Render Bônus");
 		System.out.println(" [9] Sair");
 		System.out.println("================================");
 		System.out.print("Digite a opção desejada: ");

@@ -69,7 +69,7 @@ public class NovoCadastroFrame extends JFrame {
 
 		JRadioButton poupancaButton = new JRadioButton("Poupança");
 		poupancaButton.setMnemonic(KeyEvent.VK_P);
-		poupancaButton.setActionCommand("Poupança");
+		poupancaButton.setActionCommand("Poupanﾃｧa");
 
 		JRadioButton impostoButton = new JRadioButton("Imposto");
 		impostoButton.setMnemonic(KeyEvent.VK_I);

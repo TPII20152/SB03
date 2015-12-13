@@ -1,11 +1,13 @@
 package br.ufc.banco.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,7 +31,7 @@ public class MenuFrame extends JFrame {
 		this.banco = banco;
 		
 		criarMenu();
-		cadastrarConta();
+		login();
 	}
 
 	private void criarMenu() {
@@ -53,7 +55,10 @@ public class MenuFrame extends JFrame {
 		
 		JMenu menuAjuda = new JMenu("Ajuda");
 		
+		SobreAction sobreAction = new SobreAction();
+		
 		JMenuItem menuItemSobre = new JMenuItem("Sobre");
+		menuItemSobre.addActionListener(sobreAction);
 		menuAjuda.add(menuItemSobre);
 		
 		// Barra
@@ -66,51 +71,57 @@ public class MenuFrame extends JFrame {
 	}
 	
 	
-	private void cadastrarConta() {
+	private void login() {
 		
-		SairAction fecharAction = new SairAction();
-		CadastrarAction cadastrarAction = new CadastrarAction();
+		EntrarAction entrarAction = new EntrarAction();
+		SairAction sairAction = new SairAction();
 		
 		setLayout(new BorderLayout());
 		
 		// Título
 		
 		JPanel panelTitulo = new JPanel();
-		panelTitulo.setLayout(new FlowLayout());
+		panelTitulo.setLayout(new BoxLayout(panelTitulo, BoxLayout.PAGE_AXIS));
 		
-		JLabel titulo = new JLabel("Cadastrar Conta");
-		titulo.setFont(new Font("Verdana", Font.PLAIN, 16));
-		panelTitulo.add(titulo);
+		JLabel titulo1 = new JLabel("Bem Vindo ao Banco do Brasil");
+		titulo1.setFont(new Font("Verdana", Font.PLAIN, 16));
+		titulo1.setAlignmentX(CENTER_ALIGNMENT);
+		JLabel titulo2 = new JLabel("Terminal de Auto-Atendimento");
+		titulo2.setFont(new Font("Verdana", Font.PLAIN, 14));
+		titulo2.setAlignmentX(CENTER_ALIGNMENT);
+		
+		panelTitulo.add(titulo1);
+		panelTitulo.add(titulo2);
 		
 		// Formulário de Cadastro
 		
-		JPanel panelCadastro = new JPanel();
-		panelCadastro.setLayout(new FlowLayout());
+		JPanel panelNumConta = new JPanel();
+		panelNumConta.setLayout(new FlowLayout());
 		
 		JLabel numContaLabel = new JLabel("Número da Conta");
-		numContaField = new JTextField(40);
+		numContaField = new JTextField(30);
 		
-		panelCadastro.add(numContaLabel);
-		panelCadastro.add(numContaField);
+		panelNumConta.add(numContaLabel);
+		panelNumConta.add(numContaField);
 		
 		// Botões
 		
 		JPanel panelBotoes = new JPanel();
 		panelBotoes.setLayout(new FlowLayout());
 		
-		JButton botaoCadastrar = new JButton("Cadastrar");
-		JButton botaoFechar = new JButton("Fechar");
+		JButton botaoEntrar = new JButton("Entrar");
+		JButton botaoSair = new JButton("Sair");
 		
-		botaoCadastrar.addActionListener(cadastrarAction);
-		botaoFechar.addActionListener(fecharAction);
+		botaoEntrar.addActionListener(entrarAction);
+		botaoSair.addActionListener(sairAction);
 		
-		panelBotoes.add(botaoCadastrar);
-		panelBotoes.add(botaoFechar);
+		panelBotoes.add(botaoEntrar);
+		panelBotoes.add(botaoSair);
 		
 		// Posicionamento
 		
 		add(panelTitulo, BorderLayout.NORTH);
-		add(panelCadastro, BorderLayout.CENTER);
+		add(panelNumConta, BorderLayout.CENTER);
 		add(panelBotoes, BorderLayout.SOUTH);
 	}
 	
@@ -134,11 +145,20 @@ public class MenuFrame extends JFrame {
 		
 	}
 	
-	private class CadastrarAction implements ActionListener {
+	private class EntrarAction implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog(null, "O cadastro foi salvo!", "Cadastro", JOptionPane.PLAIN_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Login feito com sucesso.", "Login", JOptionPane.PLAIN_MESSAGE);
+		}
+		
+	}
+	
+	private class SobreAction implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JOptionPane.showMessageDialog(null, "O Sistema Bancário é um sistema Java simples, de caráter acadêmico, utilizado na disciplina de Técnicas de Programação II da Universidade Federal do Ceará.\n\nFeito por Lincoln Rocha e Ismália Santiago.", "Sobre", JOptionPane.PLAIN_MESSAGE);
 		}
 		
 	}
